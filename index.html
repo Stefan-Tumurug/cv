@@ -1,410 +1,266 @@
 <!doctype html>
-<html lang="da">
+<html lang="da" class="lang-da">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Stefan Andrei Tumurug – CV</title>
-<meta name="description" content="CV for Stefan Andrei Tumurug, uddannet IT-teknolog med fokus på backend-udvikling i C# og .NET.">
-<style>
-  :root {
-    --red: #c00000;
-    --red-dark: #8e0000;
-    --ink: #1f1f1f;
-    --muted: #5f5f5f;
-    --line: #e4e4e4;
-    --chip: #fbeaea;
-    --panel: #faf7f7;
-  }
-
-  @page { size: A4; margin: 12mm 14mm; }
-
-  * { box-sizing: border-box; }
-
-  html, body { background: #fff; }
-
-  body {
-    margin: 0;
-    font-family: "Segoe UI", Calibri, Arial, sans-serif;
-    color: var(--ink);
-    font-size: 10.5pt;
-    line-height: 1.5;
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
-  }
-
-  .wrap { max-width: 980px; margin: 0 auto; padding: 0 28px 48px; }
-
-  /* ---------- Hero ---------- */
-  .hero {
-    background: var(--red);
-    background: linear-gradient(135deg, var(--red) 0%, var(--red-dark) 100%);
-    color: #fff;
-    border-radius: 0 0 14px 14px;
-    padding: 36px 36px 30px;
-    margin: 0 -28px;
-  }
-  .hero h1 {
-    margin: 0;
-    font-size: 34pt;
-    font-weight: 800;
-    letter-spacing: -0.3px;
-    line-height: 1.1;
-  }
-  .hero .title {
-    margin-top: 8px;
-    font-size: 13pt;
-    opacity: 0.95;
-  }
-  .hero .actions {
-    margin-top: 18px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-  .btn {
-    display: inline-block;
-    padding: 8px 16px;
-    border-radius: 999px;
-    font-size: 9.5pt;
-    font-weight: 700;
-    text-decoration: none;
-    color: var(--red);
-    background: #fff;
-  }
-  .btn.ghost {
-    color: #fff;
-    background: transparent;
-    border: 1.5px solid rgba(255,255,255,0.7);
-  }
-
-  .chips { display: flex; flex-wrap: wrap; gap: 6px; }
-  .chip {
-    background: var(--chip);
-    color: var(--red);
-    font-weight: 600;
-    font-size: 9pt;
-    padding: 3px 10px;
-    border-radius: 999px;
-    display: inline-block;
-  }
-  .hero .chip { background: rgba(255,255,255,0.18); color: #fff; }
-  .hero .chips { margin-top: 18px; }
-
-  /* ---------- Layout ---------- */
-  .layout {
-    display: flex;
-    gap: 30px;
-    margin-top: 26px;
-    align-items: flex-start;
-  }
-  .side { width: 255px; flex: none; }
-  .main { flex: 1; min-width: 0; }
-
-  .panel {
-    background: var(--panel);
-    border: 1px solid var(--line);
-    border-radius: 10px;
-    padding: 16px 18px;
-    margin-bottom: 16px;
-  }
-  .panel h3 {
-    margin: 0 0 10px;
-    font-size: 9.5pt;
-    text-transform: uppercase;
-    letter-spacing: 1.4px;
-    color: var(--red);
-  }
-  .panel p, .panel li { font-size: 10pt; }
-  .panel ul { list-style: none; margin: 0; padding: 0; }
-  .panel li { margin-bottom: 6px; }
-  .panel a { color: var(--ink); text-decoration: none; word-break: break-all; }
-  .panel a:hover { color: var(--red); text-decoration: underline; }
-  .panel .label { display: block; color: var(--muted); font-size: 8.5pt; }
-
-  /* ---------- Sections ---------- */
-  section { margin-bottom: 24px; }
-  h2 {
-    font-size: 11pt;
-    text-transform: uppercase;
-    letter-spacing: 1.6px;
-    color: var(--red);
-    margin: 0 0 12px;
-    padding-bottom: 6px;
-    border-bottom: 2px solid var(--red);
-  }
-  p { margin: 0 0 8px; }
-  ul { margin: 4px 0 8px; padding-left: 18px; }
-  li { margin-bottom: 4px; }
-  .muted { color: var(--muted); }
-  .italic { font-style: italic; }
-
-  /* ---------- Timeline ---------- */
-  .entry {
-    position: relative;
-    padding: 0 0 4px 16px;
-    margin-bottom: 14px;
-    border-left: 3px solid var(--line);
-  }
-  .entry::before {
-    content: "";
-    position: absolute;
-    left: -7px;
-    top: 6px;
-    width: 11px;
-    height: 11px;
-    border-radius: 50%;
-    background: var(--red);
-  }
-  .entry-head {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    flex-wrap: wrap;
-    gap: 4px 12px;
-  }
-  .entry-title { font-weight: 700; font-size: 11pt; }
-  .entry-date {
-    color: var(--muted);
-    font-size: 9.5pt;
-    white-space: nowrap;
-    background: var(--panel);
-    padding: 1px 8px;
-    border-radius: 999px;
-    border: 1px solid var(--line);
-  }
-  .entry-org { color: var(--muted); font-style: italic; font-size: 9.5pt; margin-bottom: 4px; }
-
-  /* ---------- Project cards ---------- */
-  .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-  .card {
-    border: 1px solid var(--line);
-    border-top: 4px solid var(--red);
-    border-radius: 10px;
-    padding: 14px 16px;
-    background: #fff;
-  }
-  .card h4 { margin: 0 0 4px; font-size: 11pt; }
-  .card .org { color: var(--muted); font-size: 9.5pt; font-style: italic; margin-bottom: 8px; }
-  .card p { font-size: 10pt; }
-  .card .chips { margin: 8px 0 0; }
-  .card .links { margin-top: 10px; font-size: 9.5pt; }
-  .card .links a { color: var(--red); font-weight: 600; text-decoration: none; }
-  .card .links a:hover { text-decoration: underline; }
-
-  .lang-row { font-size: 10pt; }
-
-  /* ---------- Print: single column for a clean PDF ---------- */
-  @media print {
-    .wrap { max-width: none; padding: 0; }
-    .hero { margin: 0; border-radius: 0; padding: 22px 26px; }
-    .hero .actions { display: none; }
-    .layout { display: block; margin-top: 16px; }
-    .side { width: auto; }
-    .panel { background: none; border: none; padding: 0; margin-bottom: 10px; }
-    .panel h3 { display: none; }
-    .panel ul { display: block; }
-    .panel li { display: inline; margin-right: 14px; }
-    .side .contact-list li { display: block; margin: 0 0 2px; }
-    .cards { grid-template-columns: 1fr; }
-    section, .entry, .card { break-inside: avoid; }
-    a { color: var(--ink); }
-  }
-
-  @media (max-width: 760px) {
-    .layout { display: block; }
-    .side { width: auto; }
-    .cards { grid-template-columns: 1fr; }
-    .hero { margin: 0 -18px; padding: 26px 22px; }
-    .wrap { padding: 0 18px 36px; }
-    .hero h1 { font-size: 26pt; }
-  }
-</style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Stefan Andrei Tumurug – CV</title>
+    <meta name="description" content="CV for Stefan Andrei Tumurug, uddannet IT-teknolog med fokus på backend-udvikling i C# og .NET. / CV for Stefan Andrei Tumurug, IT technologist focused on backend development in C# and .NET.">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<div class="wrap">
+    <div class="wrap">
 
-  <header class="hero">
-    <h1>Stefan Andrei Tumurug</h1>
-    <div class="title">Uddannet IT-teknolog &nbsp;·&nbsp; Backend-udvikler</div>
-    <div class="chips">
-      <span class="chip">C#</span>
-      <span class="chip">.NET</span>
-      <span class="chip">REST API</span>
-      <span class="chip">SQL Server</span>
-      <span class="chip">Docker</span>
-      <span class="chip">Git/GitHub</span>
+        <header class="hero">
+            <button class="lang-toggle" id="lang-toggle" type="button" aria-label="Switch language / Skift sprog"><span class="da">English</span><span class="en">Dansk</span></button>
+            <h1>Stefan Andrei Tumurug</h1>
+            <div class="da title">Uddannet IT-teknolog &nbsp;·&nbsp; Backend-udvikler</div><div class="en title">IT technologist &nbsp;·&nbsp; Backend developer</div>
+            <div class="chips"><span class="chip">C#</span><span class="chip">.NET</span><span class="chip">REST API</span><span class="chip">SQL Server</span><span class="chip">Docker</span><span class="chip">Git/GitHub</span></div>
+            <div class="actions"><a class="btn da" href="CV-Stefan.pdf" download>Hent CV som PDF</a><a class="btn en" href="CV-Stefan-EN.pdf" download>Download CV (PDF)</a><button class="btn ghost" id="open-contact" type="button"><span class="da">Kontakt mig</span><span class="en">Contact me</span></button></div>
+        </header>
+
+        <div class="layout">
+            <aside class="side">
+                <div class="da panel"><h3>Teknologier</h3><div class="chips"><span class="chip">C#</span><span class="chip">.NET</span><span class="chip">Blazor</span><span class="chip">SQL Server</span><span class="chip">Python</span><span class="chip">COBOL</span><span class="chip">Visual Studio</span><span class="chip">Git/GitHub</span><span class="chip">Docker</span><span class="chip">Arduino &amp; IoT</span><span class="chip">Netværk &amp; CyberSec</span></div></div><div class="en panel"><h3>Technologies</h3><div class="chips"><span class="chip">C#</span><span class="chip">.NET</span><span class="chip">Blazor</span><span class="chip">SQL Server</span><span class="chip">Python</span><span class="chip">COBOL</span><span class="chip">Visual Studio</span><span class="chip">Git/GitHub</span><span class="chip">Docker</span><span class="chip">Arduino &amp; IoT</span><span class="chip">Networking &amp; CyberSec</span></div></div>
+                <div class="da panel langs"><h3>Sprog</h3><div class="chips"><span class="chip"><b>Dansk</b> · modersmål</span><span class="chip"><b>Rumænsk</b> · modersmål</span><span class="chip"><b>Engelsk</b> · flydende</span><span class="chip"><b>Tysk</b> · begynder</span><span class="chip"><b>Spansk</b> · begynder</span></div></div><div class="en panel langs"><h3>Languages</h3><div class="chips"><span class="chip"><b>Danish</b> · native</span><span class="chip"><b>Romanian</b> · native</span><span class="chip"><b>English</b> · fluent</span><span class="chip"><b>German</b> · beginner</span><span class="chip"><b>Spanish</b> · beginner</span></div></div>
+            </aside>
+            <main class="main">
+                <div class="da sec-wrap"><section><h2>Profil</h2><p>Uddannet IT-teknolog med fokus på backend-udvikling, API-design og softwaredesign. Jeg arbejder struktureret og analytisk og har erfaring med C#/.NET, REST API'er og SQL-databaser fra praktik, projekter og Specialisterne Academy. Jeg lærer hurtigt nye teknologier, skriver vedligeholdbar kode og trives med at finde og løse tekniske problemer.</p></section></div><div class="en sec-wrap"><section><h2>Profile</h2><p>IT technologist with a focus on backend development, API design and software design. I work in a structured and analytical way and have experience with C#/.NET, REST APIs and SQL databases from internships, projects and Specialisterne Academy. I learn new technologies quickly, write maintainable code and enjoy solving technical problems.</p></section></div><div class="da sec-wrap"><section><h2>Kernekompetencer</h2><ul><li>Backend-udvikling i C# og .NET</li><li>REST API-udvikling og Swagger-dokumentation</li><li>SQL-databasedesign og integration (SQL Server)</li><li>Objektorienteret programmering og softwaredesign</li><li>Test, fejlfinding og kvalitetssikring</li><li>Git/GitHub og versionsstyring</li><li>Agile arbejdsgange og sprintbaseret udvikling</li><li>Tværfagligt samarbejde og kundeservice</li></ul><p class="muted italic">Personlige kompetencer: konflikthåndtering, høj arbejdsmoral og ansvarsfølelse.</p></section></div><div class="en sec-wrap"><section><h2>Core skills</h2><ul><li>Backend development in C# and .NET</li><li>REST API development and Swagger documentation</li><li>SQL database design and integration (SQL Server)</li><li>Object-oriented programming and software design</li><li>Testing, debugging and quality assurance</li><li>Git/GitHub and version control</li><li>Agile ways of working and sprint-based development</li><li>Cross-functional teamwork and customer service</li></ul><p class="muted italic">Personal strengths: conflict resolution, strong work ethic and a sense of responsibility.</p></section></div><div class="da sec-wrap">
+                    <section>
+                        <h2>Erhvervserfaring</h2><div class="entry">
+                            <div class="entry-head">
+                                <span class="entry-title">Praktikant, IT – Software og programmering</span>
+                                <span class="entry-date">Januar – april 2025</span>
+                            </div>
+                            <div class="entry-org">Diviso – Digital Visual Solutions, Viborg</div>
+                            <ul>
+                                <li>Udviklede og implementerede et fullstack-system bestående af en Windows Forms-baseret URL-visning, en Blazor Server-backoffice og en REST API med SQL-integration.</li>
+                                <li>Arbejdede med C#/.NET, API-design og Swagger-dokumentation samt SQL-databaseintegration.</li>
+                                <li>Stod for fejlfinding, test og dokumentation, og versionsstyrede arbejdet i GitHub.</li>
+                            </ul>
+                        </div>
+                    </section>
+                </div><div class="en sec-wrap">
+                    <section>
+                        <h2>Experience</h2><div class="entry">
+                            <div class="entry-head">
+                                <span class="entry-title">Intern, IT – Software and programming</span>
+                                <span class="entry-date">January – April 2025</span>
+                            </div>
+                            <div class="entry-org">Diviso – Digital Visual Solutions, Viborg</div>
+                            <ul>
+                                <li>Developed and implemented a full-stack system consisting of a Windows Forms-based URL display, a Blazor Server back office and a REST API with SQL integration.</li>
+                                <li>Worked with C#/.NET, API design and Swagger documentation, and SQL database integration.</li>
+                                <li>Handled debugging, testing and documentation, and version-controlled the work in GitHub.</li>
+                            </ul>
+                        </div>
+                    </section>
+                </div><div class="da sec-wrap">
+                    <section>
+                        <h2>Anden erhvervserfaring</h2><div class="entry">
+                            <div class="entry-head">
+                                <span class="entry-title">Vikar, hjemmepleje</span>
+                                <span class="entry-date">Juli 2026 – nu</span>
+                            </div>
+                            <div class="entry-org">Svanepleje ApS, Kjellerup</div>
+                        </div>
+                        <div class="entry">
+                            <div class="entry-head">
+                                <span class="entry-title">Sundhedsassistent</span>
+                                <span class="entry-date">Juni 2023 – maj 2025</span>
+                            </div>
+                            <div class="entry-org">Pleje- og Omsorgscenter, Viborg</div>
+                        </div>
+                        <div class="entry">
+                            <div class="entry-head">
+                                <span class="entry-title">Servicemedhjælper</span>
+                                <span class="entry-date">Februar 2020 – oktober 2022</span>
+                            </div>
+                            <div class="entry-org">Løvbjerg, Viborg</div>
+                        </div><p>Har kørt rundt til borgere i hjemmepleje, varetaget medicinhåndtering og personlig pleje, og stået for kundebetjening og kassehåndtering. Erfaringerne har styrket min evne til at tage ansvar, arbejde selvstændigt, samarbejde i team og løse udfordringer under tidspres.</p>
+                    </section>
+                </div><div class="en sec-wrap">
+                    <section>
+                        <h2>Other experience</h2><div class="entry">
+                            <div class="entry-head">
+                                <span class="entry-title">Substitute, home care</span>
+                                <span class="entry-date">July 2026 – present</span>
+                            </div>
+                            <div class="entry-org">Svanepleje ApS, Kjellerup</div>
+                        </div>
+                        <div class="entry">
+                            <div class="entry-head">
+                                <span class="entry-title">Healthcare assistant</span>
+                                <span class="entry-date">June 2023 – May 2025</span>
+                            </div>
+                            <div class="entry-org">Pleje- og Omsorgscenter (care centre), Viborg</div>
+                        </div>
+                        <div class="entry">
+                            <div class="entry-head">
+                                <span class="entry-title">Service assistant</span>
+                                <span class="entry-date">February 2020 – October 2022</span>
+                            </div>
+                            <div class="entry-org">Løvbjerg, Viborg</div>
+                        </div><p>I have visited clients in their homes in home care, handled medication and personal care, and worked with customer service and cash handling. These jobs have strengthened my ability to take responsibility, work independently, collaborate in teams and solve problems under time pressure.</p>
+                    </section>
+                </div><div class="da sec-wrap"><section><h2>Projekter</h2><div class="cards"><article class="card"><h4>Selvhostet lydbogsserver (Audiobookshelf)</h4><div class="org">Privat projekt · Oktober 2026</div><p>Opsatte en server i Docker med Docker Compose og vedvarende datalagring via volumes. Gav adgang fra flere enheder via Tailscale og fejlfandt netværks- og firewall-problemer i Windows.</p><div class="chips"><span class="chip">Docker</span><span class="chip">Docker Compose</span><span class="chip">Tailscale</span><span class="chip">Netværk</span></div></article><article class="card"><h4>Backend-udvikling på boot.dev</h4><div class="org">Igangværende · Startet oktober 2026</div><p>Lærer backend-udvikling gennem boot.devs praktiske kurser og opgaver, og bygger løbende videre på det jeg lærer.</p><div class="chips"><span class="chip">Backend</span><span class="chip">Læring</span></div><div class="links"><a href="https://www.boot.dev/u/Larry1l">Se min boot.dev-profil →</a></div></article><article class="card"><h4>Denne CV-side</h4><div class="org">Open source · 2026</div><p>Bygget som en statisk HTML- og CSS-side med et print-layout, der også bruges til PDF'en. Kildekoden ligger på GitHub.</p><div class="chips"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">GitHub Pages</span></div><div class="links"><a href="https://github.com/Stefan-Tumurug/cv">Se kildekoden på GitHub →</a></div></article></div></section></div><div class="en sec-wrap"><section><h2>Projects</h2><div class="cards"><article class="card"><h4>Self-hosted audiobook server (Audiobookshelf)</h4><div class="org">Personal project · October 2026</div><p>Set up a server in Docker with Docker Compose and persistent data storage via volumes. Gave access from several devices via Tailscale and troubleshot network and firewall issues in Windows.</p><div class="chips"><span class="chip">Docker</span><span class="chip">Docker Compose</span><span class="chip">Tailscale</span><span class="chip">Networking</span></div></article><article class="card"><h4>Backend development on boot.dev</h4><div class="org">In progress · Started October 2026</div><p>Learning backend development through boot.dev's hands-on courses and exercises, and building on what I learn as I go.</p><div class="chips"><span class="chip">Backend</span><span class="chip">Learning</span></div><div class="links"><a href="https://www.boot.dev/u/Larry1l">View my boot.dev profile →</a></div></article><article class="card"><h4>This CV site</h4><div class="org">Open source · 2026</div><p>Built as a static HTML and CSS page with a print layout, which is also used for the PDF. The source code is on GitHub.</p><div class="chips"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">GitHub Pages</span></div><div class="links"><a href="https://github.com/Stefan-Tumurug/cv">View the source on GitHub →</a></div></article></div></section></div><div class="da sec-wrap">
+                    <section>
+                        <h2>Uddannelse</h2><div class="entry">
+                            <div class="entry-head">
+                                <span class="entry-title">IT-teknolog</span>
+                                <span class="entry-date">September 2023 – juni 2025</span>
+                            </div>
+                            <div class="entry-org">Erhvervsakademi Dania, Viborg – afgangskarakter 12</div>
+                            <ul>
+                                <li>Fokus på softwareudvikling i Python og C++, Blazor og webudvikling, embedded systems og IoT, netværk og CyberSec samt projektstyring og systemdesign.</li>
+                                <li>Udviklede et automatiseret vandingssystem (Seluxit), en VPN-løsning (Thise Mejeri) og et fullstack-praktikprojekt (Diviso).</li>
+                            </ul>
+                        </div>
+                        <div class="entry">
+                            <div class="entry-head">
+                                <span class="entry-title">IT-specialiseringsforløb</span>
+                                <span class="entry-date">Januar – april 2026</span>
+                            </div>
+                            <div class="entry-org">Specialisterne Academy, Aarhus</div>
+                            <ul>
+                                <li>12-ugers intensivt forløb i backend-udvikling, softwarearkitektur og designmønstre, test og kvalitetssikring, sprintbaseret projektarbejde og teknisk dokumentation.</li>
+                                <li>Arbejdede med C# fullstack projekter og COBOL/mainframe-relateret udvikling.</li>
+                            </ul>
+                        </div>
+                        <div class="entry">
+                            <div class="entry-head">
+                                <span class="entry-title">Bioscience STX</span>
+                                <span class="entry-date">August 2020 – juni 2023</span>
+                            </div>
+                            <div class="entry-org">Viborg Gymnasium, Viborg</div>
+                        </div>
+                    </section>
+                </div><div class="en sec-wrap">
+                    <section>
+                        <h2>Education</h2><div class="entry">
+                            <div class="entry-head">
+                                <span class="entry-title">IT technologist</span>
+                                <span class="entry-date">September 2023 – June 2025</span>
+                            </div>
+                            <div class="entry-org">Erhvervsakademi Dania, Viborg – final grade 12 (Danish scale)</div>
+                            <ul>
+                                <li>Focus on software development in Python and C++, Blazor and web development, embedded systems and IoT, networking and CyberSec, and project management and system design.</li>
+                                <li>Developed an automated irrigation system (Seluxit), a VPN solution (Thise Mejeri) and a full-stack internship project (Diviso).</li>
+                            </ul>
+                        </div>
+                        <div class="entry">
+                            <div class="entry-head">
+                                <span class="entry-title">IT specialisation programme</span>
+                                <span class="entry-date">January – April 2026</span>
+                            </div>
+                            <div class="entry-org">Specialisterne Academy, Aarhus</div>
+                            <ul>
+                                <li>12-week intensive programme in backend development, software architecture and design patterns, testing and quality assurance, sprint-based project work and technical documentation.</li>
+                                <li>Worked on C# full-stack projects and COBOL/mainframe-related development.</li>
+                            </ul>
+                        </div>
+                        <div class="entry">
+                            <div class="entry-head">
+                                <span class="entry-title">Bioscience STX</span>
+                                <span class="entry-date">August 2020 – June 2023</span>
+                            </div>
+                            <div class="entry-org">Viborg Gymnasium, Viborg</div>
+                        </div>
+                    </section>
+                </div><div class="da sec-wrap"><section><h2>Referencer</h2><p>Tidligere arbejdsgivere kan kontaktes efter aftale.</p></section></div><div class="en sec-wrap"><section><h2>References</h2><p>Previous employers can be contacted on request.</p></section></div>
+            </main>
+        </div>
+
+        <div class="da foot">Sidst opdateret oktober 2026</div><div class="en foot">Last updated October 2026</div>
     </div>
-    <div class="actions">
-      <a class="btn" href="CV-Stefan.pdf" download>Hent CV som PDF</a>
-      <a class="btn ghost" href="mailto:stefanandreitumurug@gmail.com">Kontakt mig</a>
+
+    <div class="modal" id="contact-modal" aria-hidden="true" role="dialog" aria-labelledby="contact-title">
+        <div class="modal-box">
+            <h3 id="contact-title"><span class="da">Kontakt</span><span class="en">Contact</span></h3><div class="sub"><span class="da">Du er velkommen til at skrive eller ringe.</span><span class="en">Feel free to write or call.</span></div><div class="da modal-rows">
+                <div class="row">
+                    <div><div class="k">E-mail</div><div class="v"><a href="mailto:stefanandreitumurug@gmail.com">stefanandreitumurug@gmail.com</a></div></div>
+                    <button class="copy" type="button" data-copy="stefanandreitumurug@gmail.com" data-done="Kopieret!">Kopiér</button>
+                </div>
+                <div class="row">
+                    <div><div class="k">Telefon</div><div class="v"><a href="tel:+4553696281">+45 53 69 62 81</a></div></div>
+                    <button class="copy" type="button" data-copy="+45 53 69 62 81" data-done="Kopieret!">Kopiér</button>
+                </div>
+                <div class="row">
+                    <div><div class="k">Lokation</div><div class="v">Kjellerup, Danmark</div></div>
+                </div>
+                <div class="row">
+                    <div><div class="k">GitHub</div><div class="v"><a href="https://github.com/Stefan-Tumurug">github.com/Stefan-Tumurug</a></div></div>
+                </div>
+                <div class="row">
+                    <div><div class="k">boot.dev</div><div class="v"><a href="https://www.boot.dev/u/Larry1l">boot.dev/u/Larry1l</a></div></div>
+                </div>
+                <button class="close" type="button" data-close="1">Luk</button>
+                <div style="clear: both"></div>
+            </div><div class="en modal-rows">
+                <div class="row">
+                    <div><div class="k">E-mail</div><div class="v"><a href="mailto:stefanandreitumurug@gmail.com">stefanandreitumurug@gmail.com</a></div></div>
+                    <button class="copy" type="button" data-copy="stefanandreitumurug@gmail.com" data-done="Copied!">Copy</button>
+                </div>
+                <div class="row">
+                    <div><div class="k">Phone</div><div class="v"><a href="tel:+4553696281">+45 53 69 62 81</a></div></div>
+                    <button class="copy" type="button" data-copy="+45 53 69 62 81" data-done="Copied!">Copy</button>
+                </div>
+                <div class="row">
+                    <div><div class="k">Location</div><div class="v">Kjellerup, Denmark</div></div>
+                </div>
+                <div class="row">
+                    <div><div class="k">GitHub</div><div class="v"><a href="https://github.com/Stefan-Tumurug">github.com/Stefan-Tumurug</a></div></div>
+                </div>
+                <div class="row">
+                    <div><div class="k">boot.dev</div><div class="v"><a href="https://www.boot.dev/u/Larry1l">boot.dev/u/Larry1l</a></div></div>
+                </div>
+                <button class="close" type="button" data-close="1">Close</button>
+                <div style="clear: both"></div>
+            </div>
+        </div>
     </div>
-  </header>
 
-  <div class="layout">
+    <script>(function () {
+  var root = document.documentElement;
+  var KEY = 'cv-lang';
 
-    <aside class="side">
-      <div class="panel">
-        <h3>Kontakt</h3>
-        <ul class="contact-list">
-          <li><span class="label">E-mail</span><a href="mailto:stefanandreitumurug@gmail.com">stefanandreitumurug@gmail.com</a></li>
-          <li><span class="label">Telefon</span>53 69 62 81</li>
-          <li><span class="label">Adresse</span>Thorningvej 6b, 8620 Kjellerup</li>
-          <li><span class="label">GitHub</span><a href="https://github.com/Stefan-Tumurug">github.com/Stefan-Tumurug</a></li>
-          <li><span class="label">boot.dev</span><a href="https://www.boot.dev/u/heavyrent69">boot.dev/u/heavyrent69</a></li>
-        </ul>
-      </div>
+  function setLang(lang) {
+    root.classList.remove('lang-da', 'lang-en');
+    root.classList.add('lang-' + lang);
+    root.setAttribute('lang', lang);
+    try { localStorage.setItem(KEY, lang); } catch (err) { /* storage may be blocked */ }
+  }
 
-      <div class="panel">
-        <h3>Teknologier</h3>
-        <div class="chips">
-          <span class="chip">C#</span><span class="chip">.NET</span><span class="chip">Blazor</span>
-          <span class="chip">SQL Server</span><span class="chip">Python</span><span class="chip">COBOL</span>
-          <span class="chip">Visual Studio</span><span class="chip">Git/GitHub</span><span class="chip">Docker</span>
-          <span class="chip">Arduino &amp; IoT</span><span class="chip">Netværk &amp; CyberSec</span>
-        </div>
-      </div>
+  var saved = null;
+  try { saved = localStorage.getItem(KEY); } catch (err) { saved = null; }
+  if (saved === 'da' || saved === 'en') { setLang(saved); }
 
-      <div class="panel">
-        <h3>Sprog</h3>
-        <ul>
-          <li>Dansk: modersmål</li>
-          <li>Rumænsk: modersmål</li>
-          <li>Engelsk: flydende</li>
-          <li>Tysk: begynder</li>
-          <li>Spansk: begynder</li>
-        </ul>
-      </div>
-    </aside>
+  document.getElementById('lang-toggle').addEventListener('click', function () {
+    setLang(root.classList.contains('lang-en') ? 'da' : 'en');
+  });
 
-    <main class="main">
+  var modal = document.getElementById('contact-modal');
+  function open() { modal.classList.add('open'); modal.setAttribute('aria-hidden', 'false'); }
+  function close() { modal.classList.remove('open'); modal.setAttribute('aria-hidden', 'true'); }
+  document.getElementById('open-contact').addEventListener('click', open);
+  modal.addEventListener('click', function (ev) {
+    if (ev.target === modal || ev.target.hasAttribute('data-close')) { close(); }
+  });
+  document.addEventListener('keydown', function (ev) { if (ev.key === 'Escape') { close(); } });
 
-      <section>
-        <h2>Profil</h2>
-        <p>Uddannet IT-teknolog med fokus på backend-udvikling, API-design og softwaredesign. Jeg arbejder struktureret og analytisk og har erfaring med C#/.NET, REST API'er og SQL-databaser fra praktik, projekter og Specialisterne Academy. Jeg lærer hurtigt nye teknologier, skriver vedligeholdbar kode og trives med at finde og løse tekniske problemer.</p>
-      </section>
+  var buttons = document.querySelectorAll('[data-copy]');
+  for (var i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener('click', function () {
+      var btn = this;
+      var text = btn.getAttribute('data-copy');
+      var original = btn.textContent;
+      var done = function () {
+        btn.textContent = btn.getAttribute('data-done');
+        setTimeout(function () { btn.textContent = original; }, 1500);
+      };
+      if (navigator.clipboard) { navigator.clipboard.writeText(text).then(done, done); } else { done(); }
+    });
+  }
+})();</script>
 
-      <section>
-        <h2>Kernekompetencer</h2>
-        <ul>
-          <li>Backend-udvikling i C# og .NET</li>
-          <li>REST API-udvikling og Swagger-dokumentation</li>
-          <li>SQL-databasedesign og integration (SQL Server)</li>
-          <li>Objektorienteret programmering og softwaredesign</li>
-          <li>Test, fejlfinding og kvalitetssikring</li>
-          <li>Git/GitHub og versionsstyring</li>
-          <li>Agile arbejdsgange og sprintbaseret udvikling</li>
-          <li>Tværfagligt samarbejde og kundeservice</li>
-        </ul>
-        <p class="muted italic">Personlige kompetencer: konflikthåndtering, høj arbejdsmoral og ansvarsfølelse.</p>
-      </section>
-
-      <section>
-        <h2>Erhvervserfaring</h2>
-        <div class="entry">
-          <div class="entry-head">
-            <span class="entry-title">Praktikant, IT – Software og programmering</span>
-            <span class="entry-date">Januar – april 2025</span>
-          </div>
-          <div class="entry-org">Diviso – Digital Visual Solutions, Viborg</div>
-          <ul>
-            <li>Udviklede og implementerede et fullstack-system bestående af en Windows Forms-baseret URL-visning, en Blazor Server-backoffice og en REST API med SQL-integration.</li>
-            <li>Arbejdede med C#/.NET, API-design og Swagger-dokumentation samt SQL-databaseintegration.</li>
-            <li>Stod for fejlfinding, test og dokumentation, og versionsstyrede arbejdet i GitHub.</li>
-          </ul>
-        </div>
-      </section>
-
-      <section>
-        <h2>Anden erhvervserfaring</h2>
-        <div class="entry">
-          <div class="entry-head">
-            <span class="entry-title">Vikar, hjemmepleje</span>
-            <span class="entry-date">Juli 2026 – nu</span>
-          </div>
-          <div class="entry-org">Svanepleje ApS, Kjellerup</div>
-        </div>
-        <div class="entry">
-          <div class="entry-head">
-            <span class="entry-title">Sundhedsassistent</span>
-            <span class="entry-date">Juni 2023 – maj 2025</span>
-          </div>
-          <div class="entry-org">Pleje- og Omsorgscenter, Viborg</div>
-        </div>
-        <div class="entry">
-          <div class="entry-head">
-            <span class="entry-title">Servicemedhjælper</span>
-            <span class="entry-date">Februar 2020 – oktober 2022</span>
-          </div>
-          <div class="entry-org">Løvbjerg, Viborg</div>
-        </div>
-        <p>Har kørt rundt til borgere i hjemmepleje, varetaget medicinhåndtering og personlig pleje, og stået for kundebetjening og kassehåndtering. Erfaringerne har styrket min evne til at tage ansvar, arbejde selvstændigt, samarbejde i team og løse udfordringer under tidspres.</p>
-      </section>
-
-      <section>
-        <h2>Projekter</h2>
-        <div class="cards">
-          <article class="card">
-            <h4>Selvhostet lydbogsserver (Audiobookshelf)</h4>
-            <div class="org">Privat projekt · Oktober 2026</div>
-            <p>Opsatte en server i Docker med Docker Compose og vedvarende datalagring via volumes. Gav adgang fra flere enheder via Tailscale og fejlfandt netværks- og firewall-problemer i Windows.</p>
-            <div class="chips">
-              <span class="chip">Docker</span><span class="chip">Docker Compose</span>
-              <span class="chip">Tailscale</span><span class="chip">Netværk</span>
-            </div>
-          </article>
-
-          <article class="card">
-            <h4>Backend-udvikling på boot.dev</h4>
-            <div class="org">Igangværende · Startet oktober 2026</div>
-            <p>Lærer backend-udvikling gennem boot.devs praktiske kurser og opgaver, og bygger løbende videre på det jeg lærer.</p>
-            <div class="chips">
-              <span class="chip">Backend</span><span class="chip">Læring</span>
-            </div>
-            <div class="links"><a href="https://www.boot.dev/u/heavyrent69">Se min boot.dev-profil →</a></div>
-          </article>
-        </div>
-      </section>
-
-      <section>
-        <h2>Uddannelse</h2>
-        <div class="entry">
-          <div class="entry-head">
-            <span class="entry-title">IT-teknolog</span>
-            <span class="entry-date">September 2023 – juni 2025</span>
-          </div>
-          <div class="entry-org">Erhvervsakademi Dania, Viborg – afgangskarakter 12</div>
-          <ul>
-            <li>Fokus på softwareudvikling i Python og C++, Blazor og webudvikling, embedded systems og IoT, netværk og CyberSec samt projektstyring og systemdesign.</li>
-            <li>Udviklede et automatiseret vandingssystem (Seluxit), en VPN-løsning (Thise Mejeri) og et fullstack-praktikprojekt (Diviso).</li>
-          </ul>
-        </div>
-        <div class="entry">
-          <div class="entry-head">
-            <span class="entry-title">IT-specialiseringsforløb</span>
-            <span class="entry-date">Januar – april 2026</span>
-          </div>
-          <div class="entry-org">Specialisterne Academy, Aarhus</div>
-          <ul>
-            <li>12-ugers intensivt forløb i backend-udvikling, softwarearkitektur og designmønstre, test og kvalitetssikring, sprintbaseret projektarbejde og teknisk dokumentation.</li>
-            <li>Arbejdede med C# fullstack projekter og COBOL/mainframe-relateret udvikling.</li>
-          </ul>
-        </div>
-        <div class="entry">
-          <div class="entry-head">
-            <span class="entry-title">Bioscience STX</span>
-            <span class="entry-date">August 2020 – juni 2023</span>
-          </div>
-          <div class="entry-org">Viborg Gymnasium, Viborg</div>
-        </div>
-      </section>
-
-      <section>
-        <h2>Referencer</h2>
-        <p>Tidligere arbejdsgivere kan kontaktes efter aftale.</p>
-      </section>
-
-    </main>
-  </div>
-</div>
 </body>
 </html>
