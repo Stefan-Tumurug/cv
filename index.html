@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="da">
+<head>
+<meta charset="utf-8">
+<title>Stefan Andrei Tumurug – CV</title>
+<style>
+  :root {
+    --red: #c00000;
+    --ink: #1f1f1f;
+    --muted: #5f5f5f;
+    --line: #e4e4e4;
+    --chip: #fbeaea;
+  }
+
+  @page { size: A4; margin: 12mm 14mm; }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    font-family: "Segoe UI", Calibri, Arial, sans-serif;
+    color: var(--ink);
+    font-size: 10.5pt;
+    line-height: 1.45;
+    background: #fff;
+  }
+
+  .page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 28px 32px 40px;
+  }
+
+  /* Header */
+  header {
+    background: var(--red);
+    color: #fff;
+    padding: 22px 26px 20px;
+    border-radius: 6px;
+  }
+  header h1 {
+    margin: 0;
+    font-size: 26pt;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+  }
+  header .title {
+    margin-top: 4px;
+    font-size: 12pt;
+    opacity: 0.95;
+  }
+  .contact {
+    margin-top: 12px;
+    font-size: 9.5pt;
+    color: var(--muted);
+  }
+  .contact a { color: var(--ink); text-decoration: none; }
+
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 14px 0 4px;
+  }
+  .chip {
+    background: var(--chip);
+    color: var(--red);
+    font-weight: 600;
+    font-size: 9pt;
+    padding: 3px 9px;
+    border-radius: 999px;
+  }
+
+  /* Sections */
+  section { margin-top: 18px; }
+  h2 {
+    font-size: 10.5pt;
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
+    color: var(--red);
+    margin: 0 0 8px;
+    padding-bottom: 4px;
+    border-bottom: 2px solid var(--red);
+  }
+  p { margin: 0 0 6px; }
+  ul { margin: 4px 0 8px; padding-left: 18px; }
+  li { margin-bottom: 3px; }
+  .muted { color: var(--muted); }
+  .italic { font-style: italic; }
+
+  /* Timeline entries */
+  .entry {
+    border-left: 3px solid var(--line);
+    padding: 2px 0 2px 12px;
+    margin-bottom: 12px;
+  }
+  .entry-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+  }
+  .entry-title { font-weight: 700; font-size: 11pt; }
+  .entry-date { color: var(--muted); font-size: 9.5pt; white-space: nowrap; }
+  .entry-org { color: var(--muted); font-style: italic; font-size: 9.5pt; margin-bottom: 4px; }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 24px;
+  }
+
+  .lang-row { }
+
+  /* Print: keep layout tight and colours in the PDF */
+  @media print {
+    body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .page { padding: 0; max-width: none; }
+    section, .entry { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<main class="page">
+
+  <header>
+    <h1>Stefan Andrei Tumurug</h1>
+    <div class="title">Uddannet IT-teknolog &nbsp;|&nbsp; Backend-udvikler</div>
+  </header>
+
+  <div class="contact">
+    <a href="https://github.com/Stefan-Tumurug">github.com/Stefan-Tumurug</a> &nbsp;·&nbsp;
+    stefanandreitumurug@gmail.com &nbsp;·&nbsp;
+    Tlf. 53 69 62 81 &nbsp;·&nbsp;
+    Thorningvej 6b, 8620 Kjellerup
+  </div>
+
+  <div class="chips">
+    <span class="chip">C#</span>
+    <span class="chip">.NET</span>
+    <span class="chip">REST API</span>
+    <span class="chip">SQL Server</span>
+    <span class="chip">Docker</span>
+    <span class="chip">Git/GitHub</span>
+  </div>
+
+  <section>
+    <h2>Profil</h2>
+    <p>Uddannet IT-teknolog med fokus på backend-udvikling, API-design og softwaredesign. Jeg arbejder struktureret og analytisk og har erfaring med C#/.NET, REST API'er og SQL-databaser fra praktik, projekter og Specialisterne Academy. Jeg lærer hurtigt nye teknologier, skriver vedligeholdbar kode og trives med at finde og løse tekniske problemer.</p>
+  </section>
+
+  <section>
+    <h2>Kernekompetencer</h2>
+    <ul>
+      <li>Backend-udvikling i C# og .NET</li>
+      <li>REST API-udvikling og Swagger-dokumentation</li>
+      <li>SQL-databasedesign og integration (SQL Server)</li>
+      <li>Objektorienteret programmering og softwaredesign</li>
+      <li>Test, fejlfinding og kvalitetssikring</li>
+      <li>Git/GitHub og versionsstyring</li>
+      <li>Agile arbejdsgange og sprintbaseret udvikling</li>
+      <li>Tværfagligt samarbejde og kundeservice</li>
+    </ul>
+    <p class="muted italic">Personlige kompetencer: konflikthåndtering, høj arbejdsmoral og ansvarsfølelse.</p>
+  </section>
+
+  <section>
+    <h2>Teknologier</h2>
+    <div class="chips">
+      <span class="chip">C#</span><span class="chip">.NET</span><span class="chip">Blazor</span>
+      <span class="chip">SQL Server</span><span class="chip">Python</span><span class="chip">COBOL</span>
+      <span class="chip">Visual Studio</span><span class="chip">Git/GitHub</span><span class="chip">Docker</span>
+      <span class="chip">Arduino &amp; IoT</span><span class="chip">Netværk &amp; CyberSec</span>
+    </div>
+  </section>
+
+  <section>
+    <h2>Erhvervserfaring</h2>
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">Praktikant, IT – Software og programmering</span>
+        <span class="entry-date">Januar – april 2025</span>
+      </div>
+      <div class="entry-org">Diviso – Digital Visual Solutions, Viborg</div>
+      <ul>
+        <li>Udviklede og implementerede et fullstack-system bestående af en Windows Forms-baseret URL-visning, en Blazor Server-backoffice og en REST API med SQL-integration.</li>
+        <li>Arbejdede med C#/.NET, API-design og Swagger-dokumentation samt SQL-databaseintegration.</li>
+        <li>Stod for fejlfinding, test og dokumentation, og versionsstyrede arbejdet i GitHub.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Anden erhvervserfaring</h2>
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">Vikar, hjemmepleje</span>
+        <span class="entry-date">Juli 2026 – nu</span>
+      </div>
+      <div class="entry-org">Svanepleje ApS, Kjellerup</div>
+    </div>
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">Sundhedsassistent</span>
+        <span class="entry-date">Juni 2023 – maj 2025</span>
+      </div>
+      <div class="entry-org">Pleje- og Omsorgscenter, Viborg</div>
+    </div>
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">Servicemedhjælper</span>
+        <span class="entry-date">Februar 2020 – oktober 2022</span>
+      </div>
+      <div class="entry-org">Løvbjerg, Viborg</div>
+    </div>
+    <p>Har kørt rundt til borgere i hjemmepleje, varetaget medicinhåndtering og personlig pleje, og stået for kundebetjening og kassehåndtering. Erfaringerne har styrket min evne til at tage ansvar, arbejde selvstændigt, samarbejde i team og løse udfordringer under tidspres.</p>
+  </section>
+
+  <section>
+    <h2>Projekter</h2>
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">Selvhostet lydbogsserver (Audiobookshelf)</span>
+        <span class="entry-date">Oktober 2026</span>
+      </div>
+      <div class="entry-org">Privat projekt</div>
+      <ul>
+        <li>Opsatte en server i Docker med Docker Compose og vedvarende datalagring via volumes.</li>
+        <li>Gav adgang fra flere enheder via Tailscale og fejlfandt netværks- og firewall-problemer i Windows.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Uddannelse</h2>
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">IT-teknolog</span>
+        <span class="entry-date">September 2023 – juni 2025</span>
+      </div>
+      <div class="entry-org">Erhvervsakademi Dania, Viborg – afgangskarakter 12</div>
+      <ul>
+        <li>Fokus på softwareudvikling i Python og C++, Blazor og webudvikling, embedded systems og IoT, netværk og CyberSec samt projektstyring og systemdesign.</li>
+        <li>Udviklede et automatiseret vandingssystem (Seluxit), en VPN-løsning (Thise Mejeri) og et fullstack-praktikprojekt (Diviso).</li>
+      </ul>
+    </div>
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">IT-specialiseringsforløb</span>
+        <span class="entry-date">Januar – april 2026</span>
+      </div>
+      <div class="entry-org">Specialisterne Academy, Aarhus</div>
+      <ul>
+        <li>12-ugers intensivt forløb i backend-udvikling, softwarearkitektur og designmønstre, test og kvalitetssikring, sprintbaseret projektarbejde og teknisk dokumentation.</li>
+        <li>Arbejdede med C# fullstack projekter og COBOL/mainframe-relateret udvikling.</li>
+      </ul>
+    </div>
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">Backend-udvikling (igangværende)</span>
+        <span class="entry-date">Løbende</span>
+      </div>
+      <div class="entry-org">boot.dev</div>
+    </div>
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">Bioscience STX</span>
+        <span class="entry-date">August 2020 – juni 2023</span>
+      </div>
+      <div class="entry-org">Viborg Gymnasium, Viborg</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Sprog</h2>
+    <p class="lang-row">Dansk: modersmål &nbsp;·&nbsp; Rumænsk: modersmål &nbsp;·&nbsp; Engelsk: flydende &nbsp;·&nbsp; Tysk: begynder &nbsp;·&nbsp; Spansk: begynder</p>
+  </section>
+
+  <section>
+    <h2>Referencer</h2>
+    <p>Tidligere arbejdsgivere kan kontaktes efter aftale.</p>
+  </section>
+
+</main>
+</body>
+</html>
