@@ -221,46 +221,89 @@
 
     <script>
 (function () {
-          var root = document.documentElement;
-          var KEY = 'cv-lang';
+          const root = document.documentElement;
+          const LANGUAGE_STORAGE_KEY = 'cv-lang';
 
-          function setLang(lang) {
+          function setLanguage(language) {
             root.classList.remove('lang-da', 'lang-en');
-            root.classList.add('lang-' + lang);
-            root.setAttribute('lang', lang);
-            try { localStorage.setItem(KEY, lang); } catch (err) { /* storage may be blocked */ }
+            root.classList.add('lang-' + language);
+            root.setAttribute('lang', language);
+            try {
+              localStorage.setItem(LANGUAGE_STORAGE_KEY, language);
+            } catch (error) {
+              // Storage can be blocked by the browser; the page still works without it.
+            }
           }
 
-          var saved = null;
-          try { saved = localStorage.getItem(KEY); } catch (err) { saved = null; }
-          if (saved === 'da' || saved === 'en') { setLang(saved); }
+          function loadSavedLanguage() {
+            try {
+              return localStorage.getItem(LANGUAGE_STORAGE_KEY);
+            } catch (error) {
+              return null;
+            }
+          }
 
-          document.getElementById('lang-toggle').addEventListener('click', function () {
-            setLang(root.classList.contains('lang-en') ? 'da' : 'en');
+          const savedLanguage = loadSavedLanguage();
+          if (savedLanguage === 'da' || savedLanguage === 'en') {
+            setLanguage(savedLanguage);
+          }
+
+          const languageToggle = document.getElementById('lang-toggle');
+          languageToggle.addEventListener('click', function () {
+            const currentlyEnglish = root.classList.contains('lang-en');
+            setLanguage(currentlyEnglish ? 'da' : 'en');
           });
 
-          var modal = document.getElementById('contact-modal');
-          function open() { modal.classList.add('open'); modal.setAttribute('aria-hidden', 'false'); }
-          function close() { modal.classList.remove('open'); modal.setAttribute('aria-hidden', 'true'); }
-          document.getElementById('open-contact').addEventListener('click', open);
-          modal.addEventListener('click', function (ev) {
-            if (ev.target === modal || ev.target.hasAttribute('data-close')) { close(); }
-          });
-          document.addEventListener('keydown', function (ev) { if (ev.key === 'Escape') { close(); } });
+          const contactModal = document.getElementById('contact-modal');
+          const openContactButton = document.getElementById('open-contact');
 
-          var buttons = document.querySelectorAll('[data-copy]');
-          for (var i = 0; i < buttons.length; i++) {
-            buttons[i].addEventListener('click', function () {
-              var btn = this;
-              var text = btn.getAttribute('data-copy');
-              var original = btn.textContent;
-              var done = function () {
-                btn.textContent = btn.getAttribute('data-done');
-                setTimeout(function () { btn.textContent = original; }, 1500);
-              };
-              if (navigator.clipboard) { navigator.clipboard.writeText(text).then(done, done); } else { done(); }
+          function openContact() {
+            contactModal.classList.add('open');
+            contactModal.setAttribute('aria-hidden', 'false');
+          }
+
+          function closeContact() {
+            contactModal.classList.remove('open');
+            contactModal.setAttribute('aria-hidden', 'true');
+          }
+
+          openContactButton.addEventListener('click', openContact);
+
+          contactModal.addEventListener('click', function (event) {
+            const clickedBackdrop = event.target === contactModal;
+            const clickedCloseButton = event.target.hasAttribute('data-close');
+            if (clickedBackdrop || clickedCloseButton) {
+              closeContact();
+            }
+          });
+
+          document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape') {
+              closeContact();
+            }
+          });
+
+          const copyButtons = document.querySelectorAll('[data-copy]');
+          copyButtons.forEach(function (copyButton) {
+            const originalLabel = copyButton.textContent;
+
+            copyButton.addEventListener('click', function () {
+              const textToCopy = copyButton.getAttribute('data-copy');
+
+              function showCopiedLabel() {
+                copyButton.textContent = copyButton.getAttribute('data-done');
+                setTimeout(function () {
+                  copyButton.textContent = originalLabel;
+                }, 1500);
+              }
+
+              if (navigator.clipboard) {
+                navigator.clipboard.writeText(textToCopy).then(showCopiedLabel, showCopiedLabel);
+              } else {
+                showCopiedLabel();
+              }
             });
-          }
+          });
 })();
     </script>
 
